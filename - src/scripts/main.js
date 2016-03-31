@@ -87,16 +87,21 @@ function isChosen(obj) {
 var flag;
 
 
-leftColumn.addEventListener('dragstart', moveFriendToRight);
-leftColumn.addEventListener('click', moveFriendToRight);
+leftColumn.addEventListener('dragstart', moveFriend);
+columns.addEventListener('click', moveFriend);
 
-function moveFriendToRight(e) {
+function moveFriend(e) {
 	if (e.target.matches('.add')) {
-		var sourceLi = e.target.parentElement,
-		li = sourceLi.cloneNode(true),
-		id = li.dataset.id;
-	rightColumn.appendChild(li);
-	leftColumn.appendChild(sourceLi);
+		var li = e.target.parentElement,
+			id = li.dataset.id;
+		if (li.matches('.moved')) {
+			leftColumn.appendChild(li);
+			li.classList.remove('moved');
+		} else {
+			rightColumn.appendChild(li);
+			li.classList.add('moved');
+		}
+		
 	} else if (e.type === 'dragstart') {
 		console.log(e.target);
 		// if (!e.target.matches('.friends-list')) {
