@@ -1,0 +1,43 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html lang="it">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>template</title>
+		<meta name="viewport" content="width=device-width"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link href='https://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="css/main.css" media="screen, projection, print"><script src="//vk.com/js/api/openapi.js" type="text/javascript"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<!--[if lt IE 9]>
+		<p class="chromeframe">It seems, you use an old browser, friend. Please, <a href="http://browsehappy.com/">download the new one for free</a></p>
+		<![endif]-->
+		<div class="container">
+			<div id="headerInfo"></div>
+			<div id="leftColumn" style="float:left"></div>
+			<div id="rightColumn" style="float:right">
+				<ul></ul>
+			</div>
+		</div>
+		<script src="js/main.min.js"></script>
+		<script type="text/x-handlebars-template" id="friendsItemTemplate">
+			 <ul class="friends-list" id="">
+			        {{#each list}}
+			        <li draggable='true' class="friend-item"  data-id="{{uid}}">
+			            <img class="photo" src={{photo_50}}>
+			            <span class="title">{{first_name}} {{last_name}}</span>
+			            <a class="add" href="#">+</a>
+			        </li>
+			        {{/each}}
+			    </ul>
+		</script>
+	</body>
+</html>

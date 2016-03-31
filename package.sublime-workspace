@@ -1,0 +1,634 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"pos",
+				"pos-r	position: relative;"
+			],
+			[
+				"htt",
+				"https"
+			],
+			[
+				"hover",
+				"hoverBg"
+			],
+			[
+				"w",
+				"w	width"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"ta",
+				"ta-c	text-align: center;"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"d",
+				"d-b	display: block;"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"bl",
+				"border-left"
+			],
+			[
+				"bor",
+				"border"
+			],
+			[
+				"ma",
+				"margin-bottom"
+			],
+			[
+				"min-",
+				"min-width"
+			],
+			[
+				"fl",
+				"fl-n	float: none;"
+			],
+			[
+				"h",
+				"h-a	height: auto;"
+			],
+			[
+				"slide",
+				"slideToggle"
+			],
+			[
+				"close",
+				"closest"
+			],
+			[
+				"bo",
+				"border-bottom"
+			],
+			[
+				"d-",
+				"d-b	display: block;"
+			],
+			[
+				"mar",
+				"margin-right"
+			],
+			[
+				"po",
+				"pos-r	position: relative;"
+			],
+			[
+				"init",
+				"initMap"
+			],
+			[
+				"bb",
+				"bxz-bb	box-sizing: border-box;"
+			],
+			[
+				"bord",
+				"border-top-style"
+			],
+			[
+				"td",
+				"td-n	text-decoration: none;"
+			],
+			[
+				"_",
+				"_news-detail.scss"
+			],
+			[
+				"b-b",
+				"border-bottom"
+			],
+			[
+				"b",
+				"baseline"
+			],
+			[
+				"vab",
+				"va-bl	vertical-align: baseline;"
+			],
+			[
+				"bt",
+				"bt	border-top"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"j",
+				"jquery.formstyler.scss"
+			],
+			[
+				"max-",
+				"max-width"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"border",
+				"border-bottom"
+			],
+			[
+				"bbt",
+				"border-bottom"
+			],
+			[
+				"text-tr",
+				"text-transform"
+			],
+			[
+				"run",
+				"runSequence"
+			],
+			[
+				"ov-",
+				"ov-h	overflow: hidden;"
+			],
+			[
+				"text-",
+				"text-transform"
+			],
+			[
+				"t-a",
+				"ta-c	text-align: center;"
+			],
+			[
+				"v-a",
+				"va-b	vertical-align: bottom;"
+			],
+			[
+				"va",
+				"va-t	vertical-align: top;"
+			],
+			[
+				"l",
+				"l-a	left: auto;"
+			],
+			[
+				"m",
+				"mt-a	margin-top: auto;"
+			],
+			[
+				"is",
+				"isAutoPlay"
+			],
+			[
+				"ow",
+				"owlCarousel"
+			],
+			[
+				"text",
+				"text-transform"
+			],
+			[
+				"v-",
+				"va-t	vertical-align: top;"
+			],
+			[
+				"tr",
+				"trf	transform"
+			],
+			[
+				"bto",
+				"border-top"
+			],
+			[
+				"ov",
+				"ovx-h	overflow-x: hidden;"
+			],
+			[
+				"te-d",
+				"text-decoration"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"v",
+				"va	vertical-align: ${1:top};"
+			],
+			[
+				"no",
+				"nowrap"
+			],
+			[
+				"cur",
+				"cursor"
+			],
+			[
+				"p-",
+				"pos-a	position: absolute;"
+			],
+			[
+				"p",
+				"padding-right"
+			],
+			[
+				"rg",
+				"rgba()"
+			],
+			[
+				"re",
+				"rename"
+			],
+			[
+				"s",
+				"sprite"
+			],
+			[
+				"dis",
+				"dist/"
+			],
+			[
+				"png",
+				"pngquant"
+			],
+			[
+				"commo",
+				"commons"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"ba",
+				"background"
+			],
+			[
+				"pa",
+				"paths"
+			],
+			[
+				"r",
+				"runSequence"
+			],
+			[
+				"sp",
+				"spritesmith"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"n",
+				"hidden"
+			],
+			[
+				"t",
+				"transparent"
+			],
+			[
+				"paddin",
+				"padding-bottom"
+			],
+			[
+				"marg",
+				"margin-bottom"
+			],
+			[
+				"paddi",
+				"padding"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"font",
+				"font-style"
+			],
+			[
+				"z-",
+				"z-index"
+			],
+			[
+				"cu",
+				"cursor"
+			],
+			[
+				"fon",
+				"font-family"
+			],
+			[
+				"clr",
+				"color"
+			],
+			[
+				"z",
+				"z-index"
+			],
+			[
+				"bg-i",
+				"background-image"
+			],
+			[
+				"inner",
+				"inner-item"
+			],
+			[
+				"de",
+				"destination"
+			],
+			[
+				"com",
+				"compiled"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "Package Control: ",
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Remove Package"
+			],
+			[
+				"pa",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/dev/stiwood/- src/jade/pages/news_detail.jade",
+		"/C/dev/stiwood/- src/jade/_common/_footer.jade",
+		"/C/dev/stiwood/- src/jade/pages/products_detail.jade",
+		"/C/dev/stiwood/- src/styles/_common/_products_detail.scss",
+		"/C/dev/stiwood/- src/styles/_common/_products.scss",
+		"/C/dev/stiwood/- src/jade/pages/products.jade",
+		"/C/dev/stiwood/- src/jade/pages/news.jade",
+		"/C/dev/stiwood/- src/jade/pages/company.jade",
+		"/C/dev/stiwood/- src/styles/_misc/_adjustment.scss",
+		"/C/dev/stiwood/- src/styles/_common/_header.scss",
+		"/C/Users/dima/Downloads/exbt2016dev/exbt2016dev/websitestructure/commons/js/product-detail.js",
+		"/C/Users/dima/Downloads/exbt2016dev/exbt2016dev/websitestructure/commons/js/product-carousel.js",
+		"/C/Users/dima/Downloads/exbt2016dev/exbt2016dev/websitestructure/index.html",
+		"/C/Users/dima/Downloads/exbt2016dev/exbt2016dev/websitestructure/commons/js/main.js",
+		"/C/dev/stiwood/- src/styles/_common/_products-header.scss",
+		"/C/dev/stiwood/- src/styles/_common/_company.scss",
+		"/C/dev/stiwood/- src/styles/_common/_contacts.scss",
+		"/C/dev/stiwood/- src/styles/_common/_responsive.scss",
+		"/C/dev/stiwood/- src/jade/_common/_header.jade",
+		"/C/dev/stiwood/- src/jade/pages/index.jade",
+		"/C/dev/stiwood/- src/scripts/_plugins/owl.carousel.min.js",
+		"/C/dev/stiwood/websitestructure/commons/images/sprite.scss",
+		"/C/dev/stiwood/gulpfile.js",
+		"/C/dev/stiwood/- src/jade/main.jade",
+		"/C/dev/stiwood/- src/jade/pages/contacts.jade",
+		"/C/dev/stiwood/- src/scripts/main.js",
+		"/C/dev/stiwood/- src/styles/_common/_breadcrumbs.scss",
+		"/C/dev/stiwood/- src/styles/_common/_news-detail.scss",
+		"/C/dev/stiwood/- src/styles/_plugins/owl.carousel.scss",
+		"/C/dev/stiwood/- src/styles/_plugins/jquery.formstyler.scss",
+		"/C/dev/stiwood/- src/styles/_common/_homepage.scss",
+		"/C/dev/stiwood/- src/styles/_common/_news.scss",
+		"/C/dev/stiwood/websitestructure/index.html",
+		"/C/Users/dima/Downloads/owl.carousel (2)/owl.carousel.2.0.0-beta.2.4/owl.carousel.js",
+		"/C/dev/stiwood/- src/styles/_common/_footer.scss",
+		"/C/dev/stiwood/- src/styles/main.scss",
+		"/C/dev/stiwood/- src/styles/_plugins/owl.theme.scss",
+		"/C/dev/stiwood/websitestructure/products_detail.html",
+		"/C/dev/stiwood/websitestructure/commons/js/main.min.js",
+		"/C/Users/dima/Downloads/owl.carousel (1)/owl-carousel/owl.carousel.js",
+		"/C/dev/stiwood/- src/styles/_misc/_mixins.scss",
+		"/C/dev/stiwood/websitestructure/commons/img/sprite.scss",
+		"/C/dev/stiwood/websitestructure/commons/css/main.css",
+		"/C/dev/stiwood/package.json",
+		"/C/dev/stiwood/- src/scripts/_plugins/jquery-1.12.1.min.js",
+		"/C/dev/template/dist/css/main.css",
+		"/C/dev/template/- src/styles/_misc/sprite.scss",
+		"/C/dev/template/dist/index.html",
+		"/C/dev/template/gulpfile.js",
+		"/C/Users/dima/Downloads/gulp/gulpfile.js",
+		"/C/dev/template/- src/jade/main.jade",
+		"/C/dev/template/- src/styles/main.scss",
+		"/C/dev/template/- src/scripts/main.js",
+		"/C/dev/template/package.json",
+		"/C/dev/template/- src/jade/_common/_footer.jade",
+		"/C/dev/template/- src/jade/pages/index.jade",
+		"/C/dev/template/- src/jade/_common/_header.jade",
+		"/C/dev/wr2015dev/wr2015/gulpfile.js",
+		"/C/Users/dima/Downloads/exbt2016dev/exbt2016dev/gulpfile.js",
+		"/C/dev/wr2015/dev/jade/main.jade",
+		"/C/dev/wr2015/gulpfile.js",
+		"/C/dev/wr2015/dev/jade/common/sidebar.jade",
+		"/C/dev/wr2015/dev/styles/common/footer.scss",
+		"/C/dev/wr2015/dev/styles/common/socials.scss",
+		"/C/dev/wr2015/webstructure/commons/img/sprite.css",
+		"/C/dev/wr2015/dev/jade/common/footer.jade",
+		"/C/dev/wr2015/dev/styles/common/sidebar.scss",
+		"/C/dev/wr2015/dev/jade/pages/index.jade",
+		"/C/dev/wr2015/dev/scripts/main.js",
+		"/C/dev/wr2015/webstructure/topics.html",
+		"/C/dev/wr2015/webstructure/commons/css/main.css",
+		"/C/dev/wr2015/dev/styles/common/header.scss",
+		"/C/Users/dima/Downloads/jssocials-1.1.0/jssocials-1.1.0/src/jssocials.shares.js",
+		"/C/Users/dima/Downloads/jssocials-1.1.0/jssocials-1.1.0/dist/jssocials.js",
+		"/C/Users/dima/Downloads/jssocials-1.1.0/jssocials-1.1.0/src/jssocials.js",
+		"/C/dev/wr2015/dev/styles/common/layout.scss",
+		"/C/dev/wr2015/dev/jade/common/socials.jade",
+		"/C/dev/wr2015/dev/scripts/plugins/jquery.sharrre.min.js",
+		"/C/dev/wr2015/dev/scripts/jquery.sharrre.min.js",
+		"/C/dev/wr2015/dev/styles/common/homepage.scss",
+		"/C/dev/wr2015/dev/jade/common/header.jade",
+		"/C/dev/wr2015/package.json",
+		"/C/dev/wr2015/dev/styles/main.scss",
+		"/C/dev/wr2015/webstructure/index.html",
+		"/C/dev/wr2015/webstructure/commons/js/main.js",
+		"/C/dev/template/dev/jade/common/footer.jade"
+	],
+	"find":
+	{
+		"height": 22.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"C:\\dev\\chef-sk"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"hover",
+			"item",
+			"prop",
+			"product-detail__slider",
+			"font-size",
+			"font",
+			"important",
+			"line-height",
+			"font-size",
+			";\n",
+			"word-wra",
+			"h1",
+			"site.local",
+			"h2",
+			"jsshare",
+			"none",
+			"\n@",
+			"socials__link",
+			"hidden",
+			";\n",
+			"asi",
+			"70"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 22.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "package.sublime-project",
+	"replace":
+	{
+		"height": 40.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 275.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
