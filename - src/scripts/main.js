@@ -1,4 +1,5 @@
-var friendsList = [];
+var friendsList = [],
+	friends;
 
 new Promise(function(resolve) {
 	if (document.readyState === 'complete') {
@@ -41,19 +42,15 @@ new Promise(function(resolve) {
 
 				// console.log(response.response);
 				// console.log(response);
-				var friends = response.response,
-					source = friendsItemTemplate.innerHTML,
-					templateFn = Handlebars.compile(source),
-					template = templateFn({list: friends});
+				friends = response.response;
+	
 
-				
 				friends.forEach(function(item, i ,arr){
-					if (isChosen(item)) {
-						friendsList.push(item.uid);	
-					}	
+					if (!isChosen(item)) {
+						var li = createEl(item);
+						leftList.appendChild(li);
+					} else rightList.appendChild(li);	
 				});
-				leftList.innerHTML = template;
-				createElement(friends[0]);
 				resolve();
 			}
 		});
@@ -61,44 +58,35 @@ new Promise(function(resolve) {
 }).catch(function(e) {
 	alert('Ошибка: ' + e.message);
 });
-function createElement(obj) {
+function createEl(obj) {
+	// var photo = document.createElement('img').setAttribute('src', obj.photo_50),
+	// 	name = document.createElement('span');
 	var photo = '<div  class="img-wrapper"><img class="photo" src="' + obj.photo_50 +'"></div>',
 		name = '<span class="title">' + obj.first_name + ' ' + obj.last_name + '</span>',
-		status = '<span class="isOnline">online</span>',
 		cross = '<a class="add-btn" href="#"></a>',
-		li = '<li class="friend-item" draggable="true" data-id="' + obj.uid + '"></li>';
-	// li = li.appendChild(photo).appendChild(name);
-	// if (obj.online) {
-	// 	li = li.appendChild(status);
-	// }
-	// li = li.appendChild(cross);
-
-	console.log(li);
+		li = document.createElement('li');
+	li.setAttribute('class', 'friend-item');
+	li.setAttribute('draggable', 'true');
+	li.setAttribute('data-id', obj.uid);
+	li.insertAdjacentHTML('afterbegin', photo + name + cross);
+	return li
 }
-function showFriends() {
-	 var friends = response.response,
-					source = friendsItemTemplate.innerHTML,
-					templateFn = Handlebars.compile(source),
-					template = templateFn({list: friends});
 
-				// results.innerHTML = template;
-
-};
 function isChosen(id) {
 	for (var i = 0; i < friendsList.length; i++) {
 		if (friendsList[i] == id) return true
 	};
 	return false
 };
-var flag;
 
-// function addFriend(id) {
-// 	friendsList.forEach(function(item, i, arr) {
-
-// 		console.log(friendsList);
-// 	})
-// }
-
+function addFriend(id) {
+	for (var i = 0; i < friendsList.length; i++) {
+		if (friendsList[i] == id) {
+			return friendsList.splice(i, 1);	
+		}
+	}
+	friendsList.push(id);
+};
 
 function moveFriend(e) {
 	if (e.target.matches('.add-btn')) {
@@ -113,74 +101,38 @@ function moveFriend(e) {
 		}
 		
 		addFriend(id);
-		function addFriend(id) {
-			for (var i = 0; i < friendsList.length; i++) {
-				if (friendsList[i] == id) {
-					return friendsList.splice(i, 1);	
-				}
-			}
-			friendsList.push(id);
-		};
-		
-
-
-			console.log(friendsList);
-		
-		
-	} else if (e.type === 'dragstart') {
-		console.log(e.target);
-		// if (!e.target.matches('.friends-list')) {
-		// 	var sourceLi = e.target.closest('.friend-item'),
-		// 		li = sourceLi.cloneNode(true),
-		// 		id = li.dataset.id;
-		// 		console.log(li);
-		// 	dragStart(sourceLi);
-		// 	rightColumn.addEventListener('dragenter', function() {
-		// 		sourceLi.addEventListener('dragend', function () {
-		// 			// console.log("dragend");
-		// 				rightColumn.appendChild(li);
-		// 				leftColumn.appendChild(sourceLi);
-		// 		});
-		// 	});		
-		// }
-	}
+		console.log(friendsList);		
+	} 
 }
-// function getMoved(id) {
-// 	console.log('move');
-// 	friendsList.forEach(function(item, i, arr){
-// 		if (item.id == id) {
-// 			if (item.isChosen) {
-// 				item.isChosen = false
-// 			} else item.isChosen = true;
-// 		}
-// 	});
-// }
-
-function dragStart(el) {
-	el.style.opacity = '0.4';
-}
-function dragEnter() {
-	flag = true;
-	console.log(flag);
-}
-function dragLeave() {
-	flag = false;
-	console.log(flag);
-}
-
-
-// function filter()
-function createElement(obj) {
-
-}
-
 /*------------------- listeners ------------------------*/
 var input = document.querySelector('.filter');
 
+input.addEventListener('keyup', function(e) {
+	if (e.target.matches('.filter__input_right')) {
+		friendsList.forEach(function(id) {
+			friends.forEach(function(item) {
+				if (item.uid == id) {
+					if (item.first_name.toLowerCase().includes(e.target.value)){
+						console.log('magic!!');
+					} else console.log('dark((');
+				}
+			})
+		})
 
-input.addEventListener('keyup', function() {
-	console.log('tap');
-})
+		// {
+			
+
+		// 	if (~e.target.value.indexOf(item.first_name)) {
+		// 		console.log('in!')
+		// 		// var li = createEl(item);
+		// 		// leftList.appendChild(li);
+		// 	}
+		// 	//rightList.appendChild(li);	
+		// });
+		//console.log(e.target.value);
+	} //else console.log('tap left');
+	
+});
 
 leftList.addEventListener('dragstart', moveFriend);
 columns.addEventListener('click', moveFriend);

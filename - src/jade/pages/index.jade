@@ -18,34 +18,10 @@ block content
 				h2
 					| Ваши друзья
 				ul#leftList
-					script(type="text/x-handlebars-template" id="friendsItemTemplate").
-						{{#each list}}
-						<li draggable='true' class="friend-item"  data-id="{{uid}}">
-							<div class="img-wrapper">
-								<img class="photo" src={{photo_50}}>
-							</div>
-							<span class="title">{{first_name}} {{last_name}}</span>
-							{{#if online}}<span class="isOnline">online</span>{{/if}}
-							<a class="add-btn" href="#"></a>
-						</li>
-						{{/each}}
 			.column_right
 				h2
 					| Друзья в списке
 				ul#rightList
-					script(type="text/x-handlebars-template" class="friendsItemTemplate").
-						{{#if 0}}
-						{{#each list}}
-						<li draggable='true' class="friend-item"  data-id="{{uid}}">
-							<div class="img-wrapper">
-								<img class="photo" src={{photo_50}}>
-							</div>
-							<span class="title">{{first_name}} {{last_name}}</span>
-							{{#if online}}<span class="isOnline">online</span>{{/if}}
-							<a class="add-btn" href="#"></a>
-						</li>
-						{{/each}}
-						{{/if}}
 		.footer
 			button(type='button' id="save-btn")
 				| Сохранить

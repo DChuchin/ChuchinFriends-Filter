@@ -35,39 +35,11 @@
 			<div id="columns">
 				<div class="column_left">
 					<h2>Ваши друзья</h2>
-					<ul id="leftList">
-						<script type="text/x-handlebars-template" id="friendsItemTemplate">
-							{{#each list}}
-							<li draggable='true' class="friend-item"  data-id="{{uid}}">
-								<div class="img-wrapper">
-									<img class="photo" src={{photo_50}}>
-								</div>
-								<span class="title">{{first_name}} {{last_name}}</span>
-								{{#if online}}<span class="isOnline">online</span>{{/if}}
-								<a class="add-btn" href="#"></a>
-							</li>
-							{{/each}}
-						</script>
-					</ul>
+					<ul id="leftList"></ul>
 				</div>
 				<div class="column_right">
 					<h2>Друзья в списке</h2>
-					<ul id="rightList">
-						<script type="text/x-handlebars-template" class="friendsItemTemplate">
-							{{#if 0}}
-							{{#each list}}
-							<li draggable='true' class="friend-item"  data-id="{{uid}}">
-								<div class="img-wrapper">
-									<img class="photo" src={{photo_50}}>
-								</div>
-								<span class="title">{{first_name}} {{last_name}}</span>
-								{{#if online}}<span class="isOnline">online</span>{{/if}}
-								<a class="add-btn" href="#"></a>
-							</li>
-							{{/each}}
-							{{/if}}
-						</script>
-					</ul>
+					<ul id="rightList"></ul>
 				</div>
 			</div>
 			<div class="footer">
