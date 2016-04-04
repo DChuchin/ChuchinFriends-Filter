@@ -20,18 +20,18 @@ new Promise(function(resolve) {
 			}
 		}, 2);
 	});
-}).then(function() {
-		return new Promise(function(resolve, reject) {
-			VK.api('users.get', {'name_case': 'gen'}, function(response) {
-				if (response.error) {
-					reject(new Error(response.error.error_msg));
-				} else {
-					headerInfo.textContent = 'Друзья ' + response.response[0].first_name + ' ' + response.response[0].last_name;
+// }).then(function() {
+// 		return new Promise(function(resolve, reject) {
+// 			VK.api('users.get', {'name_case': 'gen'}, function(response) {
+// 				if (response.error) {
+// 					reject(new Error(response.error.error_msg));
+// 				} else {
+// 					headerInfo.textContent = 'Друзья ' + response.response[0].first_name + ' ' + response.response[0].last_name;
 
-					resolve();
-				}
-			});
-		});
+// 					resolve();
+// 				}
+// 			});
+// 		});
 	}).then(function() {
 	return new Promise(function(resolve, reject) {
 		VK.api('friends.get', {'fields': 'photo_50'}, function(response) {
@@ -51,18 +51,19 @@ new Promise(function(resolve) {
 					var someFriend = {};
 						someFriend.id = item.uid;
 					if (isChosen(item)) {	
-						someFriend.isChosen = 1;
+						someFriend.isChosen = true;
 					} else {
-						someFriend.isChosen = 0;
+						someFriend.isChosen = false;
 					}
 					friendsList.push(someFriend);
 				});
+				// console.log(friendsList);
 
 				
 			
 
 
-				leftColumn.innerHTML = template;
+				leftList.innerHTML = template;
 
 				resolve();
 			}
@@ -87,20 +88,19 @@ function isChosen(obj) {
 var flag;
 
 
-leftColumn.addEventListener('dragstart', moveFriend);
-columns.addEventListener('click', moveFriend);
-
 function moveFriend(e) {
-	if (e.target.matches('.add')) {
+	if (e.target.matches('.add-btn')) {
 		var li = e.target.parentElement,
 			id = li.dataset.id;
 		if (li.matches('.moved')) {
-			leftColumn.appendChild(li);
+			leftList.appendChild(li);
 			li.classList.remove('moved');
 		} else {
-			rightColumn.appendChild(li);
+			rightList.appendChild(li);
 			li.classList.add('moved');
 		}
+		getMoved(id);
+		console.log(friendsList);
 		
 	} else if (e.type === 'dragstart') {
 		console.log(e.target);
@@ -120,6 +120,16 @@ function moveFriend(e) {
 		// }
 	}
 }
+function getMoved(id) {
+	console.log('move');
+	friendsList.forEach(function(item, i, arr){
+		if (item.id == id) {
+			if (item.isChosen) {
+				item.isChosen = false
+			} else item.isChosen = true;
+		}
+	});
+}
 
 function dragStart(el) {
 	el.style.opacity = '0.4';
@@ -133,3 +143,17 @@ function dragLeave() {
 	console.log(flag);
 }
 
+
+// function filter()
+
+
+/*------------------- listeners ------------------------*/
+var input = document.querySelector('.filter');
+
+
+input.addEventListener('keyup', function() {
+	console.log('tap');
+})
+
+leftList.addEventListener('dragstart', moveFriend);
+columns.addEventListener('click', moveFriend);

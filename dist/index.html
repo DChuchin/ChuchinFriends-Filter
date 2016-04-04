@@ -21,23 +21,59 @@
 		<p class="chromeframe">It seems, you use an old browser, friend. Please, <a href="http://browsehappy.com/">download the new one for free</a></p>
 		<![endif]-->
 		<div class="container">
-			<div id="headerInfo"></div>
+			<h1 class="header">Выберите друзей
+				<div class="close-btn"></div>
+			</h1>
+			<div class="filter">
+				<label class="filter__label filter__label_left"><i class="fa fa-search"></i>
+					<input type="text" placeholder="Начните вводить имя друга" class="filter__input filter__input_left">
+				</label>
+				<label class="filter__label filter__label_right"><i class="fa fa-search"></i>
+					<input type="text" placeholder="Начните вводить имя друга" class="filter__input filter__input_right">
+				</label>
+			</div>
 			<div id="columns">
-				<div id="leftColumn" style="float:left"></div>
-				<ul id="rightColumn" style="float:right"></ul>
+				<div class="column_left">
+					<h2>Ваши друзья</h2>
+					<ul id="leftList">
+						<script type="text/x-handlebars-template" id="friendsItemTemplate">
+							{{#each list}}
+							<li draggable='true' class="friend-item"  data-id="{{uid}}">
+								<div class="img-wrapper">
+									<img class="photo" src={{photo_50}}>
+								</div>
+								<span class="title">{{first_name}} {{last_name}}</span>
+								{{#if online}}<span class="isOnline">online</span>{{/if}}
+								<a class="add-btn" href="#"></a>
+							</li>
+							{{/each}}
+						</script>
+					</ul>
+				</div>
+				<div class="column_right">
+					<h2>Друзья в списке</h2>
+					<ul id="rightList">
+						<script type="text/x-handlebars-template" class="friendsItemTemplate">
+							{{#if 0}}
+							{{#each list}}
+							<li draggable='true' class="friend-item"  data-id="{{uid}}">
+								<div class="img-wrapper">
+									<img class="photo" src={{photo_50}}>
+								</div>
+								<span class="title">{{first_name}} {{last_name}}</span>
+								{{#if online}}<span class="isOnline">online</span>{{/if}}
+								<a class="add-btn" href="#"></a>
+							</li>
+							{{/each}}
+							{{/if}}
+						</script>
+					</ul>
+				</div>
+			</div>
+			<div class="footer">
+				<button type="button" id="save-btn">Сохранить</button>
 			</div>
 		</div>
 		<script src="js/main.min.js"></script>
-		<script type="text/x-handlebars-template" id="friendsItemTemplate">
-			 <ul class="friends-list" id="">
-			        {{#each list}}
-			        <li draggable='true' class="friend-item"  data-id="{{uid}}">
-			            <img class="photo" src={{photo_50}}>
-			            <span class="title">{{first_name}} {{last_name}}</span>
-			            <a class="add" href="#">+</a>
-			        </li>
-			        {{/each}}
-			    </ul>
-		</script>
 	</body>
 </html>

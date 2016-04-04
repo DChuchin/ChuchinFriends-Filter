@@ -29,16 +29,5 @@ html(lang='it')
 		<p class="chromeframe">It seems, you use an old browser, friend. Please, <a href="http://browsehappy.com/">download the new one for free</a></p>
 		<![endif]-->
 		block content
-
 		//- script(src='js/plugins.min.js')
 		script(src='js/main.min.js')
-		script(type="text/x-handlebars-template" id="friendsItemTemplate").
-			 <ul class="friends-list" id="">
-			        {{#each list}}
-			        <li draggable='true' class="friend-item"  data-id="{{uid}}">
-			            <img class="photo" src={{photo_50}}>
-			            <span class="title">{{first_name}} {{last_name}}</span>
-			            <a class="add" href="#">+</a>
-			        </li>
-			        {{/each}}
-			    </ul>

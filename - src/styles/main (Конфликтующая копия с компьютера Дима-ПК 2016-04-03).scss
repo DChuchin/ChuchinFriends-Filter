@@ -11,16 +11,9 @@
 	box-sizing: border-box;
 	font-size: 12px;
 }
-::-webkit-scrollbar-corner {
-	display: none;	
-}
-::-webkit-scrollbar-track { 
-color: red;
-}
 html, body {
 	width: 100%;
 	height: 100%;
-
 }
 body{
 	background: #999999;
@@ -31,8 +24,7 @@ body{
 	left: 50%;
 	transform: translate(-50%, -50%);
 	position: absolute;
-	max-width: 621px;
-	width: 95%;
+	width: 50%;
 	height: 70%;
 	border-radius: 10px;
 	background: #fff;
@@ -86,8 +78,6 @@ body{
 }
 .column_left,
 .column_right {
-	color: #4f4f4f;
-	padding-left: 15px;
 	font-size: 0;
 	display: inline-block;
 	width: 50%;
@@ -96,23 +86,14 @@ body{
 	h2 {
 		font-size: 12px;
 		margin: 0;
-		font-weight: 800;
-		padding: 5px 0;
-		border-bottom: 1px solid #f0f0f0;
+		font-weight: 700;
 	}
 }
 ul {
 	font-size: 12px;
-	font-weight: 800;
-	height: calc(100% - 30px);
+	font-weight: 700;
+	height: calc(100% - 20px);
 	overflow-x: hidden;
-
-}
-.column_left {
-	border-right: 1px solid #f0f0f0;
-}
-.column_right {
-	margin-left: -1px;
 }
 .footer {
 	background: #f0f0f0;
@@ -129,77 +110,4 @@ ul {
 	border-radius: 20px;
 	border: none;
 	outline: none;
-	&:hover {
-		background: #FF6A3F;
-	}
-	&:active {
-		box-shadow: inset 0 0 5px 0 #C1411C;
-	}
-}
-
-.img-wrapper {
-	width: 50px;
-	height: 50px;
-	border-radius: 50%;
-	overflow: hidden;
-	display: inline-block;
-	vertical-align: middle;
-}
-.friend-item {
-	position: relative;
-	width: 100%;
-	padding-right: 25px;
-	transition: all 0.3s;
-	padding: 5px;
-	border-bottom: 1px solid #f0f0f0;
-	&:hover {
-		background: #f0f0f0;
-	}
-	.title {
-		display: inline-block;
-		vertical-align: middle;
-	}
-	.isOnline {
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		right: 35px;
-		font-size: 10px;
-		color: #bcbcbc;
-		font-style: italic;
-	}
-}
-.add-btn {
-	position: absolute;
-	right: 5px;
-	top: 50%;
-	transform: translateY(-50%);
-	width: 18px;
-	height: 18px;
-	&:after {
-		top: 0;
-		left: 7px;
-		content: '';
-		position: absolute;
-		width: 4px;
-		background:#c4c4c4;
-		height: 100%;
-		border-radius: 3px;
-	}
-	&:before {
-		left: 0;
-		top: 7px;
-		content: '';
-		position: absolute;
-		height: 4px;
-		background:#c4c4c4;
-		width: 100%;
-		border-radius: 3px;
-	}
-}
-#rightList {
-	.add-btn {
-		transform: rotate(45deg) translateY(-50%);
-		right: 10px;
-	}
 }

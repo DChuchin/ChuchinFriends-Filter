@@ -3,8 +3,50 @@ block title
 	| template
 block content
 	.container
-		#headerInfo
+		h1.header
+			| Выберите друзей
+			.close-btn
+		.filter
+			label.filter__label.filter__label_left
+				i.fa.fa-search
+				input(class="filter__input filter__input_left" type="text" placeholder='Начните вводить имя друга')
+			label.filter__label.filter__label_right
+				i.fa.fa-search
+				input(class="filter__input filter__input_right" type="text" placeholder='Начните вводить имя друга')
 		#columns
-			#leftColumn(style="float:left")
-			ul#rightColumn(style="float:right")
+			.column_left
+				h2
+					| Ваши друзья
+				ul#leftList
+					script(type="text/x-handlebars-template" id="friendsItemTemplate").
+						{{#each list}}
+						<li draggable='true' class="friend-item"  data-id="{{uid}}">
+							<div class="img-wrapper">
+								<img class="photo" src={{photo_50}}>
+							</div>
+							<span class="title">{{first_name}} {{last_name}}</span>
+							{{#if online}}<span class="isOnline">online</span>{{/if}}
+							<a class="add-btn" href="#"></a>
+						</li>
+						{{/each}}
+			.column_right
+				h2
+					| Друзья в списке
+				ul#rightList
+					script(type="text/x-handlebars-template" class="friendsItemTemplate").
+						{{#if 0}}
+						{{#each list}}
+						<li draggable='true' class="friend-item"  data-id="{{uid}}">
+							<div class="img-wrapper">
+								<img class="photo" src={{photo_50}}>
+							</div>
+							<span class="title">{{first_name}} {{last_name}}</span>
+							{{#if online}}<span class="isOnline">online</span>{{/if}}
+							<a class="add-btn" href="#"></a>
+						</li>
+						{{/each}}
+						{{/if}}
+		.footer
+			button(type='button' id="save-btn")
+				| Сохранить
 				
