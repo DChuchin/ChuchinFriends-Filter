@@ -48,23 +48,12 @@ new Promise(function(resolve) {
 
 				
 				friends.forEach(function(item, i ,arr){
-					var someFriend = {};
-						someFriend.id = item.uid;
-					if (isChosen(item)) {	
-						someFriend.isChosen = true;
-					} else {
-						someFriend.isChosen = false;
-					}
-					friendsList.push(someFriend);
+					if (isChosen(item)) {
+						friendsList.push(item.uid);	
+					}	
 				});
-				// console.log(friendsList);
-
-				
-			
-
-
 				leftList.innerHTML = template;
-
+				createElement(friends[0]);
 				resolve();
 			}
 		});
@@ -72,7 +61,20 @@ new Promise(function(resolve) {
 }).catch(function(e) {
 	alert('Ошибка: ' + e.message);
 });
+function createElement(obj) {
+	var photo = '<div  class="img-wrapper"><img class="photo" src="' + obj.photo_50 +'"></div>',
+		name = '<span class="title">' + obj.first_name + ' ' + obj.last_name + '</span>',
+		status = '<span class="isOnline">online</span>',
+		cross = '<a class="add-btn" href="#"></a>',
+		li = '<li class="friend-item" draggable="true" data-id="' + obj.uid + '"></li>';
+	// li = li.appendChild(photo).appendChild(name);
+	// if (obj.online) {
+	// 	li = li.appendChild(status);
+	// }
+	// li = li.appendChild(cross);
 
+	console.log(li);
+}
 function showFriends() {
 	 var friends = response.response,
 					source = friendsItemTemplate.innerHTML,
@@ -82,10 +84,20 @@ function showFriends() {
 				// results.innerHTML = template;
 
 };
-function isChosen(obj) {
+function isChosen(id) {
+	for (var i = 0; i < friendsList.length; i++) {
+		if (friendsList[i] == id) return true
+	};
 	return false
 };
 var flag;
+
+// function addFriend(id) {
+// 	friendsList.forEach(function(item, i, arr) {
+
+// 		console.log(friendsList);
+// 	})
+// }
 
 
 function moveFriend(e) {
@@ -99,8 +111,21 @@ function moveFriend(e) {
 			rightList.appendChild(li);
 			li.classList.add('moved');
 		}
-		getMoved(id);
-		console.log(friendsList);
+		
+		addFriend(id);
+		function addFriend(id) {
+			for (var i = 0; i < friendsList.length; i++) {
+				if (friendsList[i] == id) {
+					return friendsList.splice(i, 1);	
+				}
+			}
+			friendsList.push(id);
+		};
+		
+
+
+			console.log(friendsList);
+		
 		
 	} else if (e.type === 'dragstart') {
 		console.log(e.target);
@@ -120,16 +145,16 @@ function moveFriend(e) {
 		// }
 	}
 }
-function getMoved(id) {
-	console.log('move');
-	friendsList.forEach(function(item, i, arr){
-		if (item.id == id) {
-			if (item.isChosen) {
-				item.isChosen = false
-			} else item.isChosen = true;
-		}
-	});
-}
+// function getMoved(id) {
+// 	console.log('move');
+// 	friendsList.forEach(function(item, i, arr){
+// 		if (item.id == id) {
+// 			if (item.isChosen) {
+// 				item.isChosen = false
+// 			} else item.isChosen = true;
+// 		}
+// 	});
+// }
 
 function dragStart(el) {
 	el.style.opacity = '0.4';
@@ -145,7 +170,9 @@ function dragLeave() {
 
 
 // function filter()
+function createElement(obj) {
 
+}
 
 /*------------------- listeners ------------------------*/
 var input = document.querySelector('.filter');
