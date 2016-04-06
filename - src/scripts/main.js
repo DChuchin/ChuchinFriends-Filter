@@ -22,18 +22,6 @@ new Promise(function(resolve) {
 			}
 		}, 2);
 	});
-// }).then(function() {
-// 		return new Promise(function(resolve, reject) {
-// 			VK.api('users.get', {'name_case': 'gen'}, function(response) {
-// 				if (response.error) {
-// 					reject(new Error(response.error.error_msg));
-// 				} else {
-// 					headerInfo.textContent = 'Друзья ' + response.response[0].first_name + ' ' + response.response[0].last_name;
-
-// 					resolve();
-// 				}
-// 			});
-// 		});
 	}).then(function() {
 	return new Promise(function(resolve, reject) {
 		VK.api('friends.get', {'fields': 'photo_50'}, function(response) {
@@ -63,8 +51,6 @@ new Promise(function(resolve) {
 	alert('Ошибка: ' + e.message);
 });
 function createEl(obj) {
-	// var photo = document.createElement('img').setAttribute('src', obj.photo_50),
-	// 	name = document.createElement('span');
 	var photo = '<div  class="img-wrapper"><img class="photo" src="' + obj.photo_50 +'"></div>',
 		name = '<span class="title">' + obj.first_name + ' ' + obj.last_name + '</span>',
 		cross = '<a class="add-btn" href="#"></a>',
@@ -106,6 +92,10 @@ function moveFriend(e) {
 	} 
 };
 function saveList() {
+	isSaved.classList.add('visible');
+	setTimeout(function(){
+		isSaved.classList.remove('visible');
+	},1000);
 	localStorage.setItem('friendsList', friendsList);
 };
 /*------------------- listeners ------------------------*/

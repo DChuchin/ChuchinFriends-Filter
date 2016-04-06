@@ -159,15 +159,6 @@ ul {
 		display: inline-block;
 		vertical-align: middle;
 	}
-	.isOnline {
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		right: 35px;
-		font-size: 10px;
-		color: #bcbcbc;
-		font-style: italic;
-	}
 }
 .add-btn {
 	position: absolute;
@@ -201,5 +192,16 @@ ul {
 	.add-btn {
 		transform: rotate(45deg) translateY(-50%);
 		right: 10px;
+	}
+}
+#isSaved {
+	opacity: 0;
+	font-size: 12px;
+	color: #bcbcbc;
+	font-style: italic;
+	margin-right: 10px; 
+	transition: all 0.3s;
+	&.visible {
+		opacity: 1;
 	}
 }
