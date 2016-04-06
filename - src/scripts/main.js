@@ -1,6 +1,7 @@
-var friendsList = [],
-	friends;
-
+if (localStorage.getItem('friendsList')) {
+	var friendsList = localStorage.getItem('friendsList').split(',');
+} else var friendsList = [];
+var friends;
 new Promise(function(resolve) {
 	if (document.readyState === 'complete') {
 		resolve();
@@ -44,12 +45,15 @@ new Promise(function(resolve) {
 				// console.log(response);
 				friends = response.response;
 	
-
 				friends.forEach(function(item, i ,arr){
-					if (!isChosen(item)) {
-						var li = createEl(item);
+					var li = createEl(item);
+					if (!isChosen(item.uid)) {
+
 						leftList.appendChild(li);
-					} else rightList.appendChild(li);	
+					} else {
+						li.classList.add('moved');
+						rightList.appendChild(li);	
+					}
 				});
 				resolve();
 			}
@@ -78,7 +82,6 @@ function isChosen(id) {
 	};
 	return false
 };
-
 function addFriend(id) {
 	for (var i = 0; i < friendsList.length; i++) {
 		if (friendsList[i] == id) {
@@ -99,40 +102,42 @@ function moveFriend(e) {
 			rightList.appendChild(li);
 			li.classList.add('moved');
 		}
-		
-		addFriend(id);
-		console.log(friendsList);		
+		addFriend(id);		
 	} 
-}
+};
+function saveList() {
+	localStorage.setItem('friendsList', friendsList);
+};
 /*------------------- listeners ------------------------*/
 var input = document.querySelector('.filter');
 
 input.addEventListener('keyup', function(e) {
 	if (e.target.matches('.filter__input_right')) {
+		rightList.innerHTML = '';
 		friendsList.forEach(function(id) {
 			friends.forEach(function(item) {
 				if (item.uid == id) {
-					if (item.first_name.toLowerCase().includes(e.target.value)){
-						console.log('magic!!');
-					} else console.log('dark((');
+					if (item.first_name.concat(' ', item.last_name).toLowerCase().includes(e.target.value.trim().toLowerCase())){
+						var li = createEl(item);
+						li.classList.add('moved');
+						rightList.appendChild(li);
+					} 
 				}
-			})
-		})
-
-		// {
-			
-
-		// 	if (~e.target.value.indexOf(item.first_name)) {
-		// 		console.log('in!')
-		// 		// var li = createEl(item);
-		// 		// leftList.appendChild(li);
-		// 	}
-		// 	//rightList.appendChild(li);	
-		// });
-		//console.log(e.target.value);
-	} //else console.log('tap left');
-	
+			});
+		}); 
+	} else { 
+		sourceList = leftList.innerHTML;
+		leftList.innerHTML = '';
+		friends.forEach(function(item) {
+			if (!isChosen(item.uid)) {
+				if (item.first_name.toLowerCase().includes(e.target.value)){
+					var li = createEl(item);
+					leftList.appendChild(li);
+				} 
+			}
+		});  
+	}	
 });
-
+saveBtn.addEventListener('click', saveList);
 leftList.addEventListener('dragstart', moveFriend);
 columns.addEventListener('click', moveFriend);
