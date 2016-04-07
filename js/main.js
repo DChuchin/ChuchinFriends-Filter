@@ -1,7 +1,14 @@
 if (localStorage.getItem('friendsList')) {
 	var friendsList = localStorage.getItem('friendsList').split(',');
-} else var friendsList = [];
-var friends;
+} else var friendsList = [];   // массив содержит в себе id пользователей сохраненных в правом списке
+
+
+var friends;   // переменная получит в себя массив друзей полученных от VK.api
+
+
+
+/*---------------------- получение списка друзей от VK.api ---------------------*/
+
 new Promise(function(resolve) {
 	if (document.readyState === 'complete') {
 		resolve();
@@ -45,6 +52,8 @@ new Promise(function(resolve) {
 }).catch(function(e) {
 	alert('Ошибка: ' + e.message);
 });
+
+
 /*------------------- listeners ------------------------*/
 var input = document.querySelector('.filter');
 
@@ -54,6 +63,7 @@ columns.addEventListener('click', moveFriend);
 leftList.addEventListener('dragstart', dragstart);
 rightList.addEventListener('dragover', dragover);
 rightList.addEventListener('drop', drop);
+
 
 /*------------------------ dragNdrop ----------------------*/
 function dragstart(e) {
@@ -84,9 +94,12 @@ function drop(e) {
 	};
 };
 
+
+
 function createEl(obj) {
+//создаем элемент li из объекта полученного от VK.api
 	var photo = '<div  class="img-wrapper"><img class="photo" src="' + obj.photo_50 +'"></div>',
-		name = '<span class="title">' + obj.first_name + ' ' + obj.last_name + '</span>',
+		name = '<span class="title">' + obj.first_name + ' ' + obj.last_name + '</span>',			
 		cross = '<a class="add-btn" href="#"></a>',
 		li = document.createElement('li');
 	li.setAttribute('class', 'friend-item');
@@ -95,13 +108,19 @@ function createEl(obj) {
 	li.insertAdjacentHTML('afterbegin', photo + name + cross);
 	return li
 }
+
+
 function isChosen(id) {
+//проверка наличия искомого id в правом списке
 	for (var i = 0; i < friendsList.length; i++) {
 		if (friendsList[i] == id) return true
 	};
 	return false
 };
+
+
 function addFriend(id) {
+//добавляет искомый id в правый список, или удаляем, если он удже там есть
 	for (var i = 0; i < friendsList.length; i++) {
 		if (friendsList[i] == id) {
 			return friendsList.splice(i, 1);    
@@ -110,7 +129,9 @@ function addFriend(id) {
 	friendsList.push(id);
 };
 
+
 function moveFriend(e) {
+//физическое перемещение друга из одного списка в другой по нажатию на плюсик/крестик
 	if (e.target.matches('.add-btn')) {
 		var li = e.target.parentElement,
 			id = li.dataset.id;
@@ -124,9 +145,13 @@ function moveFriend(e) {
 		addFriend(id);      
 	} 
 };
+
+
 function saveList() {
+//сохраняет информацию о дузьях в правом списке в localStorage
 	isSaved.classList.add('visible');
 	setTimeout(function(){
+	//выводит подсказку о том, что список был сохранен
 		isSaved.classList.remove('visible');
 	},1000);
 	localStorage.setItem('friendsList', friendsList);
@@ -134,10 +159,8 @@ function saveList() {
 
 
 
-
-
-
 function filter(e) {
+// фильтрация списков
 	if (e.target.matches('.filter__input_right')) {
 		rightList.innerHTML = '';
 		friendsList.forEach(function(id) {
