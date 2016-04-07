@@ -3,50 +3,28 @@ var
 	gulp         = require('gulp'),
 	jade         = require('gulp-jade'),
 	sass         = require('gulp-sass'),
-	sourcemaps   = require('gulp-sourcemaps'),
-	del          = require('del'),
 	autoprefixer = require('gulp-autoprefixer'),
-	runSequence  = require('run-sequence'),
 	browserSync  = require('browser-sync').create(),
-	plumber      = require('gulp-plumber'),
-	imageMin     = require('gulp-imagemin'),
-	spritesmith  = require('gulp.spritesmith'),
-	rename       = require('gulp-rename'),
-	uglify       = require('gulp-uglify'),
-	pngquant     = require('imagemin-pngquant'),
-	concat       = require('gulp-concat');
+	plumber      = require('gulp-plumber');
 
 /*---------------- paths ----------------------*/
 
 var
 	paths = {
 		jade : {
-			locations   : '- src/jade/**/*.jade',
-			compiled    : '- src/jade/pages/*.jade',
-			destination : 'dist/'
+			locations   : 'jade/index.jade',
+			destination : ''
 		},
 
 		scss : {
-			locations   : '- src/styles/**/*.scss',
-			compiled    : '- src/styles/main.scss',
-			destination : 'dist/css'
-		},
-
-		js : {
-			locations   : '- src/scripts/main.js',
-			plugins     : '- src/scripts/_plugins/*.min.js',
-			destination : 'dist/js'
-		},
-
-		img : {
-			locations   : '- src/img/**/*',
-			sprite      : '- src/img/icons/*.png',
-			destination : 'dist/images/'
+			locations   : 'sass/**/*.scss',
+			compiled    : 'sass/main.scss',
+			destination : 'css'
 		},
 
 		browserSync : {
-			baseDir   : 'dist/',
-			watchPaths : ['dist/*.html', 'dist/css/*.css', 'dist/js/*.js' ]
+			baseDir   : '',
+			watchPaths : ['*.html', 'css/*.css', 'js/*.js' ]
 		},
 
 		build : 'dist/*'
@@ -55,7 +33,7 @@ var
 /*---------------- jade ------------------------*/
 
 gulp.task('jade', function() {
-	gulp.src(paths.jade.compiled)
+	gulp.src(paths.jade.locations)
 		.pipe(plumber())
 		.pipe(jade({
 			pretty: '\t',
@@ -67,14 +45,11 @@ gulp.task('jade', function() {
 
 gulp.task('sass', function() {
 	gulp.src(paths.scss.compiled)
-		.pipe(sourcemaps.init())
 		.pipe(plumber())
 		.pipe(sass().on('error', sass.logError))
 		.pipe(autoprefixer({
 			browsers : [ '> 1%', 'last 2 versions', 'ie >=9']
 		}))
-		.pipe(concat('main.css'))
-		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(paths.scss.destination))
 });
 
@@ -88,59 +63,9 @@ gulp.task('sync', function () {
 	});
 });
 
-/*-------------- plugins ------------------*/
-gulp.task('plugins', function() {
-	gulp.src(paths.js.plugins)
-		.pipe(plumber())
-		.pipe(concat('plugins.min.js'))
-		.pipe(uglify())
-		.pipe(gulp.dest(paths.js.destination))
-});
+/*--------------- build ------------------*/
 
-/*---------------- scripts -----------*/
-
-gulp.task('scripts', function() {
-	gulp.src(paths.js.locations)
-		.pipe(sourcemaps.init())
-		.pipe(plumber())
-		.pipe(uglify())
-		.pipe(rename('main.min.js'))
-		.pipe(sourcemaps.write())
-		.pipe(gulp.dest(paths.js.destination))
-});
-
-/*------------ images -----------------*/
-
-gulp.task('img-min', function() {
-	gulp.src(paths.img.locations)
-		.pipe(imageMin())
-		.pipe(gulp.dest(paths.img.destination))
-	});
-
-gulp.task('sprite', function() {
-	gulp.src(paths.img.sprite)
-		.pipe(spritesmith({
-			imgName : 'sprite.png',
-			cssName : 'sprite.scss',
-			padding : 70,
-			algorithm: 'top-down',
-			use:[pngquant({quality: '65-80'})]
-			}))
-		.pipe(gulp.dest(paths.img.destination));
-	});
-/*---------------- clean ------------*/
-
-gulp.task('clean', function () {
-	del(paths.build);
-});
-
-/*--------------- build -----------*/
-
-// gulp.task('build', function() {
-// 	runSequence('clean',['jade','sass','scripts', 'plugins', 'img-min', 'sprite']);
-// });
-
-gulp.task('build', ['jade','sass','scripts', 'plugins', 'img-min']);
+gulp.task('build', ['jade','sass']);
 
 
 /*-------------- watch ---------------*/ 
@@ -148,10 +73,6 @@ gulp.task('build', ['jade','sass','scripts', 'plugins', 'img-min']);
 gulp.task('watch', function() {
 	gulp.watch(paths.jade.locations, ['jade']);
 	gulp.watch(paths.scss.locations, ['sass']);
-	gulp.watch(paths.js.locations, ['scripts']);
-	gulp.watch(paths.js.plugins, ['plugins']);
-	gulp.watch(paths.img.sprite, ['sptite']);
-	gulp.watch(paths.img.locations, ['img-min']);
 	gulp.watch(paths.browserSync.watchPaths).on('change', browserSync.reload);
 });
 

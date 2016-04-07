@@ -1,21 +1,11 @@
-/*----------- variabels -------------*/
 
-/*------------ misc ------------*/
 @import "_misc/normalize.scss";
 
 @import "_misc/_mixins.scss";
 
-@import "_misc/_adjustment.scss";
-
 *{
 	box-sizing: border-box;
 	font-size: 12px;
-}
-::-webkit-scrollbar-corner {
-	display: none;	
-}
-::-webkit-scrollbar-track { 
-color: red;
 }
 html, body {
 	width: 100%;
@@ -25,6 +15,11 @@ html, body {
 body{
 	background: #999999;
 	position: relative;
+}
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
 }
 .container {
 	top: 50%;
@@ -40,7 +35,6 @@ body{
 }
 
 .header {
-	box-sizing: border-box;
 	height: 46px;
 	font-size: 16px;
 	background: #ff8663;
@@ -119,7 +113,6 @@ ul {
 	padding: 7px;
 	width: 100%;
 	text-align: right;
-	box-sizing: border-box;
 	height: 46px;
 }
 #saveBtn {
@@ -144,20 +137,34 @@ ul {
 	overflow: hidden;
 	display: inline-block;
 	vertical-align: middle;
+	position: absolute;
+	top: 50%;
+	margin-top: -25px;
+	left: 5px;
 }
 .friend-item {
+	@include clearfix;
 	position: relative;
 	width: 100%;
 	padding-right: 25px;
 	transition: all 0.3s;
-	padding: 5px;
+	padding: 5px 15px 5px 60px;
+	min-height: 55px;
 	border-bottom: 1px solid #f0f0f0;
+	&:before {
+		display: inline-block;
+		content: '';
+		height: 100%;
+		vertical-align: middle;
+		min-height: 55px;
+	}
 	&:hover {
 		background: #f0f0f0;
 	}
 	.title {
 		display: inline-block;
 		vertical-align: middle;
+
 	}
 }
 .add-btn {
@@ -193,6 +200,7 @@ ul {
 		transform: rotate(45deg) translateY(-50%);
 		right: 10px;
 	}
+	overflow-y: scroll;
 }
 #isSaved {
 	opacity: 0;
@@ -205,3 +213,18 @@ ul {
 		opacity: 1;
 	}
 }
+
+::-webkit-scrollbar { 
+	width: 6px;
+	position: absolute;
+}
+::-webkit-scrollbar-track {
+	background: #f0f0f0;  
+	-webkit-border-radius: 5px; 
+	border-radius: 5px; 
+} 
+::-webkit-scrollbar-thumb { 
+	-webkit-border-radius: 5px; 
+	border-radius: 5px; 
+	background: #c4c4c4; 
+} 

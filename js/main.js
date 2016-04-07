@@ -28,19 +28,14 @@ new Promise(function(resolve) {
 			if (response.error) {
 				reject(new Error(response.error.error_msg));
 			} else {
-
-				// console.log(response.response);
-				// console.log(response);
 				friends = response.response;
-	
 				friends.forEach(function(item, i ,arr){
 					var li = createEl(item);
 					if (!isChosen(item.uid)) {
-
 						leftList.appendChild(li);
 					} else {
 						li.classList.add('moved');
-						rightList.appendChild(li);	
+						rightList.appendChild(li);  
 					}
 				});
 				resolve();
@@ -50,6 +45,45 @@ new Promise(function(resolve) {
 }).catch(function(e) {
 	alert('Ошибка: ' + e.message);
 });
+/*------------------- listeners ------------------------*/
+var input = document.querySelector('.filter');
+
+input.addEventListener('keyup', filter);
+saveBtn.addEventListener('click', saveList);
+columns.addEventListener('click', moveFriend);
+leftList.addEventListener('dragstart', dragstart);
+rightList.addEventListener('dragover', dragover);
+rightList.addEventListener('drop', drop);
+
+/*------------------------ dragNdrop ----------------------*/
+function dragstart(e) {
+	e.dataTransfer.setData('text', e.target.dataset.id);
+	e.target.style.opacity = '0.5';
+	e.target.addEventListener('dragend', dragend);
+};
+function dragend(e) {
+	if (e.target.style.opacity) {
+		e.target.style.opacity = '1';
+	};
+};
+function dragover(e) {
+	e.preventDefault();
+	e.dataTransfer.dropEffect='move';
+};
+function drop(e) {
+	e.preventDefault();
+	var id = e.dataTransfer.getData('text'),
+		friendsArr = leftList.querySelectorAll('.friend-item');
+	for(var i = 0; i < friendsArr.length; i++) {
+		if(friendsArr[i].dataset.id == id) {
+			var li = friendsArr[i];
+			li.classList.add('moved');
+			rightList.appendChild(li);
+			addFriend(id);
+		};
+	};
+};
+
 function createEl(obj) {
 	var photo = '<div  class="img-wrapper"><img class="photo" src="' + obj.photo_50 +'"></div>',
 		name = '<span class="title">' + obj.first_name + ' ' + obj.last_name + '</span>',
@@ -61,7 +95,6 @@ function createEl(obj) {
 	li.insertAdjacentHTML('afterbegin', photo + name + cross);
 	return li
 }
-
 function isChosen(id) {
 	for (var i = 0; i < friendsList.length; i++) {
 		if (friendsList[i] == id) return true
@@ -71,7 +104,7 @@ function isChosen(id) {
 function addFriend(id) {
 	for (var i = 0; i < friendsList.length; i++) {
 		if (friendsList[i] == id) {
-			return friendsList.splice(i, 1);	
+			return friendsList.splice(i, 1);    
 		}
 	}
 	friendsList.push(id);
@@ -88,7 +121,7 @@ function moveFriend(e) {
 			rightList.appendChild(li);
 			li.classList.add('moved');
 		}
-		addFriend(id);		
+		addFriend(id);      
 	} 
 };
 function saveList() {
@@ -98,10 +131,13 @@ function saveList() {
 	},1000);
 	localStorage.setItem('friendsList', friendsList);
 };
-/*------------------- listeners ------------------------*/
-var input = document.querySelector('.filter');
 
-input.addEventListener('keyup', function(e) {
+
+
+
+
+
+function filter(e) {
 	if (e.target.matches('.filter__input_right')) {
 		rightList.innerHTML = '';
 		friendsList.forEach(function(id) {
@@ -120,14 +156,12 @@ input.addEventListener('keyup', function(e) {
 		leftList.innerHTML = '';
 		friends.forEach(function(item) {
 			if (!isChosen(item.uid)) {
-				if (item.first_name.toLowerCase().includes(e.target.value)){
+				if (item.first_name.concat(' ', item.last_name).toLowerCase().includes(e.target.value.trim().toLowerCase())){
 					var li = createEl(item);
 					leftList.appendChild(li);
 				} 
 			}
 		});  
-	}	
-});
-saveBtn.addEventListener('click', saveList);
-leftList.addEventListener('dragstart', moveFriend);
-columns.addEventListener('click', moveFriend);
+	}
+};
+
