@@ -91,7 +91,7 @@ function drop(e) {
 
 function createEl(obj) {
 //создаем элемент li из объекта полученного от VK.api
-	var photo = '<div  class="img-wrapper"><img class="photo" src="' + obj.photo_50 +'"></div>',
+	var photo = '<div  class="img-wrapper"><img class="photo" src="' + obj.photo_50 +'" draggable="false"></div>',
 		name = '<span class="title">' + obj.first_name + ' ' + obj.last_name + '</span>',			
 		cross = '<a class="add-btn" href="#"></a>',
 		li = document.createElement('li');
