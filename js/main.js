@@ -1,14 +1,11 @@
+/*---------------------- проверка списка друзей в local storage ----------------------*/
 if (localStorage.getItem('friendsList')) {
 	var friendsList = localStorage.getItem('friendsList').split(',');
 } else var friendsList = [];   // массив содержит в себе id пользователей сохраненных в правом списке
 
-
 var friends;   // переменная получит в себя массив друзей полученных от VK.api
 
-
-
 /*---------------------- получение списка друзей от VK.api ---------------------*/
-
 new Promise(function(resolve) {
 	if (document.readyState === 'complete') {
 		resolve();
@@ -53,7 +50,6 @@ new Promise(function(resolve) {
 	alert('Ошибка: ' + e.message);
 });
 
-
 /*------------------- listeners ------------------------*/
 var input = document.querySelector('.filter');
 
@@ -63,7 +59,6 @@ columns.addEventListener('click', moveFriend);
 leftList.addEventListener('dragstart', dragstart);
 rightList.addEventListener('dragover', dragover);
 rightList.addEventListener('drop', drop);
-
 
 /*------------------------ dragNdrop ----------------------*/
 function dragstart(e) {
@@ -94,8 +89,6 @@ function drop(e) {
 	};
 };
 
-
-
 function createEl(obj) {
 //создаем элемент li из объекта полученного от VK.api
 	var photo = '<div  class="img-wrapper"><img class="photo" src="' + obj.photo_50 +'"></div>',
@@ -109,7 +102,6 @@ function createEl(obj) {
 	return li
 }
 
-
 function isChosen(id) {
 //проверка наличия искомого id в правом списке
 	for (var i = 0; i < friendsList.length; i++) {
@@ -117,7 +109,6 @@ function isChosen(id) {
 	};
 	return false
 };
-
 
 function addFriend(id) {
 //добавляет искомый id в правый список, или удаляем, если он удже там есть
@@ -128,7 +119,6 @@ function addFriend(id) {
 	}
 	friendsList.push(id);
 };
-
 
 function moveFriend(e) {
 //физическое перемещение друга из одного списка в другой по нажатию на плюсик/крестик
@@ -146,7 +136,6 @@ function moveFriend(e) {
 	} 
 };
 
-
 function saveList() {
 //сохраняет информацию о дузьях в правом списке в localStorage
 	isSaved.classList.add('visible');
@@ -156,8 +145,6 @@ function saveList() {
 	},1000);
 	localStorage.setItem('friendsList', friendsList);
 };
-
-
 
 function filter(e) {
 // фильтрация списков
