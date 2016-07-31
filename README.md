@@ -4,22 +4,27 @@
 
 ## Instalation
 
-###1. Склонируйте репозиторий
+###1. Создайте папку для проекта
 >```
-git clone https://github.com/DChuchin/ChuchinFriends-Filter.git
+mkdir foo
 ```
 
 ###2. Перейдите в папку с проектом
 >```
-cd ChuchinFriends-Filter
+cd foo
 ```
 
-###3. Установите npm зависимости
+###3. Склонируйте репозиторий в папку
+>```
+git clone https://github.com/DChuchin/ChuchinFriends-Filter.git .
+```
+
+###4. Установите npm зависимости
 >```
 npm i
 ```
 
-###4. Запустите Gulp
+###5. Запустите Gulp
 >```
 gulp
 ```
